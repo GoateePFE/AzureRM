@@ -1,7 +1,8 @@
 ﻿@{ 
     AllNodes = @( 
         @{ 
-            Nodename = 'localhost' 
+            Nodename = 'localhost'
+            PSDscAllowDomainUser = $true
         }
     )
 
@@ -21,6 +22,7 @@ Harriet,P@ssw0rd,Operations,Specialist
 
         RootOUs = 'Accounting','IT','Marketing','Operations'
         ChildOUs = 'Users','Computers','Groups'
+        TestObjCount = 5
 
     }
 } 
