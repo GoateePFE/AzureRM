@@ -1,6 +1,6 @@
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
+  "contentVersion": "1.0.0.1",
   "parameters": {
     "newStorageAccountName": {
       "type": "string",
@@ -433,7 +433,8 @@
             "protectedSettings": {
               "Items": {
                 "AdminPassword": "[parameters('adminPassword')]"
-              }
+              },
+              "DataBlobUri": "[concat(parameters('assetLocation'),'CreateADDomainWithData.psd1')]"
             }
           }
         }
