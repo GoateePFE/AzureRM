@@ -23,18 +23,6 @@
     "domainName": {
       "value": "mydomain.local"
     },
-    "RootOUs": {
-      "value": "'Dev','Ops'"
-    },
-    "ChildOUs": {
-      "value": "'Users','Groups'"
-    },
-    "UserData": {
-      "value": "UserName,Password,Dept,Title"
-    },
-    "TestObjCount": {
-      "value": "5"
-    },
     "addnsName": {
       "value": "GEN-UNIQUE"
     },

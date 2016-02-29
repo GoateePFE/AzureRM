@@ -174,30 +174,6 @@
         "description": "The FQDN of the AD Domain created "
       }
     },
-    "RootOUs": {
-      "type": "string",
-      "metadata": {
-        "description": "Array of OU names to be created under the domain root"
-      }
-    },
-    "ChildOUs": {
-      "type": "string",
-      "metadata": {
-        "description": "Array of child OU names to be created under root OUs. 'Users' and 'Groups' are required values at a minimum."
-      }
-    },
-    "UserData": {
-      "type": "string",
-      "metadata": {
-        "description": "Multi-line string containing CSV data with columns: UserName,Password,Dept,Title"
-      }
-    },
-    "TestObjCount": {
-      "type": "int",
-      "metadata": {
-        "description": "The number of test users and groups to create"
-      }
-    },
     "addnsName": {
       "type": "string",
       "metadata": {
@@ -448,10 +424,6 @@
               "ConfigurationFunction": "[variables('adConfigurationFunction')]",
               "Properties": {
                 "DomainName": "[parameters('domainName')]",
-                "RootOUs": "[parameters('RootOUs')]",
-                "ChildOUs": "[parameters('ChildOUs')]",
-                "UserData": "[parameters('UserData')]",
-                "TestObjCount": "[parameters('TestObjCount')]",                                                                
                 "AdminCreds": {
                   "UserName": "[parameters('adminUserName')]",
                   "Password": "PrivateSettingsRef:AdminPassword"
