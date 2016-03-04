@@ -35,3 +35,4 @@ from the use or distribution of the Sample Code.
 This posting is provided "AS IS" with no warranties, and confers no rights. Use
 of included script samples are subject to the terms specified
 at http://www.microsoft.com/info/cpyright.htm.
+ 
