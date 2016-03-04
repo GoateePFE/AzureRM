@@ -14,7 +14,9 @@ In 30 minutes you will have a populated AD test lab.
 
 ##Contact
 Ashley McGlone, Microsoft Premier Field Engineer
+
 http://aka.ms/GoateePFE
+
 March 2016
 
 ##LEGAL DISCLAIMER
