@@ -18,7 +18,7 @@
       "value": "GEN-PASSWORD"
     },
     "adVMSize": {
-      "value": "Standard_D2"
+      "value": "Standard_D1"
     },
     "domainName": {
       "value": "mydomain.local"
