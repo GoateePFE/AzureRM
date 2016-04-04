@@ -14,6 +14,11 @@ Or, download all these files. Tweak the DSC configuration, DSC configuration dat
 - An Azure subscription (MSDN, trial, etc.)
 - WMF 5.0 (or WMF 4.0 with PowerShellGet installed)
 
+##Deploy On Azure
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FGoateePFE%2FAzureRM%2Fmaster%2Factive-directory-new-domain-with-data%2Fazuredeploy.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
+</a>
+
 ##Contact
 Ashley McGlone, Microsoft Premier Field Engineer
 
