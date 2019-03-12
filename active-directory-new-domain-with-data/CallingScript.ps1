@@ -22,14 +22,14 @@ Login-AzureRmAccount
 
 # Adjust the 'yournamehere' part of these three strings to
 # something unique for you. Leave the last two characters in each.
-$URI       = 'https://raw.githubusercontent.com/GoateePFE/AzureRM/master/active-directory-new-domain-with-data/azuredeploy.json'
-$Location  = 'east us'
-$rgname    = 'yournamehererg'
-$saname    = 'yournameheresa'     # Lowercase required
-$addnsName = 'yournameheread'     # Lowercase required
+$URI       = 'https://raw.githubusercontent.com/cloudwidth/ADDS-with-Data/master/active-directory-new-domain-with-data/azuredeploy.json'
+$Location  = 'south central us'
+$rgname    = 'RG-OnPremDatacenter'
+$saname    = 'saonpredcadds'     # Lowercase required
+$addnsName = 'onpremadds'     # Lowercase required
 
 # Check that the public dns $addnsName is available
-if (Test-AzureRmDnsAvailability -DomainNameLabel $addnsName -Location $Location)
+if (Test-AzDnsAvailability -DomainNameLabel $addnsName -Location $Location)
 { 'Available' } else { 'Taken. addnsName must be globally unique.' }
 
 # Create the new resource group. Runs quickly.
@@ -38,7 +38,7 @@ New-AzureRmResourceGroup -Name $rgname -Location $Location
 # Parameters for the template and configuration
 $MyParams = @{
     newStorageAccountName = $saname
-    location              = 'East US'
+    location              = 'South Central US'
     domainName            = 'alpineskihouse.com'
     addnsName             = $addnsName
    }
@@ -53,7 +53,7 @@ $SplatParams = @{
 
 # This takes ~30 minutes
 # One prompt for the domain admin password
-New-AzureRmResourceGroupDeployment @SplatParams -Verbose
+New-AzResourceGroupDeployment @SplatParams -Verbose
 
 # Find the VM IP and FQDN
 $PublicAddress = (Get-AzureRmPublicIpAddress -ResourceGroupName $rgname)[0]
