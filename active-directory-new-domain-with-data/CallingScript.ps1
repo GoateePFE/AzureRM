@@ -56,7 +56,7 @@ $SplatParams = @{
 New-AzResourceGroupDeployment @SplatParams -Verbose
 
 # Find the VM IP and FQDN
-$PublicAddress = (Get-AzureRmPublicIpAddress -ResourceGroupName $rgname)[0]
+$PublicAddress = (Get-AzPublicIpAddress -ResourceGroupName $rgname)[0]
 $IP   = $PublicAddress.IpAddress
 $FQDN = $PublicAddress.DnsSettings.Fqdn
 
@@ -75,4 +75,4 @@ Start-Process -FilePath mstsc.exe -ArgumentList "/v:$IP"
 #  Users root container has test users and populated test groups
 
 # Delete the entire resource group when finished
-Remove-AzureRmResourceGroup -Name $rgname -Force -Verbose
+Remove-AzResourceGroup -Name $rgname -Force -Verbose
