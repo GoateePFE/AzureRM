@@ -18,7 +18,7 @@ Import-AzureRM -Verbose
 Import-Module Azure -Verbose
 
 # Authenticate to your Azure account
-Login-AzureRmAccount
+Login-AzAccount
 
 # Adjust the 'yournamehere' part of these three strings to
 # something unique for you. Leave the last two characters in each.
@@ -33,7 +33,7 @@ if (Test-AzDnsAvailability -DomainNameLabel $addnsName -Location $Location)
 { 'Available' } else { 'Taken. addnsName must be globally unique.' }
 
 # Create the new resource group. Runs quickly.
-New-AzureRmResourceGroup -Name $rgname -Location $Location
+New-AzResourceGroup -Name $rgname -Location $Location
 
 # Parameters for the template and configuration
 $MyParams = @{
