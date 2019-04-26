@@ -25,9 +25,9 @@ Login-AzAccount
 $URI       = 'https://raw.githubusercontent.com/cloudwidth/ADDS-with-Data/master/active-directory-new-domain-with-data/azuredeploy.json'
 $Location  = 'South Central US'
 $rgname    = 'RG-2019AzureGlobalBootcamp'
-$namePrefix = '2019AGBDemo'
-$saname    = ('sa' + $namePrefix).ToLower()    # Lowercase required
-$addnsName = ($namePrefix).ToLower()     # Lowercase required
+$namePrefix = 'AGB2019Demo'                     # cannot start with numbers
+$saname    = ('sa' + $namePrefix).ToLower()     # Lowercase required
+$addnsName = ($namePrefix).ToLower()            # Lowercase required
 
 
 # Check that the public dns $addnsName is available
