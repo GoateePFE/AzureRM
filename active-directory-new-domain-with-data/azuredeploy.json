@@ -190,8 +190,7 @@
       "properties": {
         "PlatformUpdateDomainCount": 5,
         "PlatformFaultDomainCount": 2
-      },
-      
+      }
     },
     {
       "name": "VNet",
