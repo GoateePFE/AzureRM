@@ -26,7 +26,7 @@ $URI       = 'https://raw.githubusercontent.com/cloudwidth/ADDS-with-Data/master
 $Location  = 'South Central US'
 $rgname    = 'RG-2019AzureGlobalBootcamp'
 $namePrefix = 'AGB2019Demo'                     # cannot start with numbers
-$saname    = ('sa' + $namePrefix).ToLower()     # Lowercase required
+#$saname    = ('sa' + $namePrefix).ToLower()     # Lowercase required
 $addnsName = ($namePrefix).ToLower()            # Lowercase required
 
 
@@ -40,7 +40,7 @@ New-AzResourceGroup -Name $rgname -Location $Location
 
 # Parameters for the template and configuration
 $MyParams = @{
-    newStorageAccountName = $saname
+#    newStorageAccountName = $saname
     location              = 'South Central US'
     domainName            = 'azureglobalbootcamp.com'
     addnsName             = $addnsName
