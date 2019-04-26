@@ -24,9 +24,8 @@ Login-AzAccount
 # something unique for you. Leave the last two characters in each.
 $URI       = 'https://raw.githubusercontent.com/cloudwidth/ADDS-with-Data/master/active-directory-new-domain-with-data/azuredeploy.json'
 $Location  = 'South Central US'
-$rgname    = 'RG-2019AzureGlobalBootcamp'
-$namePrefix = 'AGB2019Demo'                     # cannot start with numbers
-#$saname    = ('sa' + $namePrefix).ToLower()     # Lowercase required
+$rgname    = 'RG-2019GAB'
+$namePrefix = 'GAB2019Demo'                     # cannot start with numbers
 $addnsName = ($namePrefix).ToLower()            # Lowercase required
 
 
@@ -40,9 +39,8 @@ New-AzResourceGroup -Name $rgname -Location $Location
 
 # Parameters for the template and configuration
 $MyParams = @{
-#    newStorageAccountName = $saname
-    location              = 'South Central US'
-    domainName            = 'azureglobalbootcamp.com'
+    location              = $Location
+    domainName            = ($namePrefix + ".com")       # The maximum length is 15 characters
     addnsName             = $addnsName
     namePrefix            = $namePrefix
    }
@@ -52,7 +50,7 @@ $SplatParams = @{
     TemplateUri             = $URI 
     ResourceGroupName       = $rgname 
     TemplateParameterObject = $MyParams
-    Name                    = '2019AzureGlobalBootcampForest'
+    Name                    = ($namePrefix + 'Forest')
    }
 
 # This takes ~30 minutes

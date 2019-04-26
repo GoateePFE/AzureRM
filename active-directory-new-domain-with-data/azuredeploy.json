@@ -289,7 +289,23 @@
       }
     },
     {
-      "apiVersion": "2015-05-01-preview",
+      "type": "Microsoft.Compute/disks",
+      "apiVersion": "2018-06-01",
+      "name": "[concat(variables('adVMName'),'_DataDisk')]",
+      "location": "[parameters('location')]",
+      "sku": {
+          "name": "Standard_LRS"
+      },
+      "properties": {
+          "creationData": {
+              "createOption": "Empty"
+          },
+          "diskSizeGB": "[variables('adDataDiskSize')]",
+          "caching": "None"
+      }
+    },
+    {
+      "apiVersion": "2018-10-01",
       "type": "Microsoft.Compute/virtualMachines",
       "name": "[variables('adVMName')]",
       "location": "[parameters('location')]",
@@ -320,20 +336,15 @@
           "osDisk": {
             "name": "[concat(variables('adVMName'),'_OSDisk')]",
             "caching": "ReadWrite",
-            "createOption": "FromImage",
-            "managedDisk": {
-              "storageAccountType": "Standard_LRS"
-            }
+            "createOption": "FromImage"
           },
           "dataDisks": [
             {
               "lun": 0,
               "name": "[concat(variables('adVMName'),'_DataDisk')]",
-              "createOption": "Empty",
-              "diskSizeGB": "[variables('adDataDiskSize')]",
-              "caching": "None",
+              "createOption": "attach",
               "managedDisk": {
-                "storageAccountType": "Standard_LRS"
+                "id": "[resourceId('Microsoft.Compute/disks/', concat(variables('adVMName'),'_DataDisk'))]"
               }
             }
           ]
