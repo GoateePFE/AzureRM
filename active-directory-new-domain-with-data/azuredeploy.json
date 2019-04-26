@@ -182,8 +182,15 @@
     {
       "type": "Microsoft.Compute/availabilitySets",
       "name": "[variables('adAvailabilitySetName')]",
-      "apiVersion": "2015-05-01-preview",
-      "location": "[parameters('location')]"
+      "apiVersion": "2017-03-30",
+      "location": "[parameters('location')]",
+      "properties": {
+        "PlatformUpdateDomainCount": 5,
+        "PlatformFaultDomainCount": 2
+      },
+      "sku": {
+        "name": "Aligned"
+      }
     },
     {
       "name": "VNet",
@@ -290,7 +297,7 @@
     },
     {
       "type": "Microsoft.Compute/disks",
-      "apiVersion": "2018-06-01",
+      "apiVersion": "2018-09-30",
       "name": "[concat(variables('adVMName'),'_DataDisk')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -300,8 +307,7 @@
           "creationData": {
               "createOption": "Empty"
           },
-          "diskSizeGB": "[variables('adDataDiskSize')]",
-          "caching": "None"
+          "diskSizeGB": "[variables('adDataDiskSize')]"
       }
     },
     {
@@ -343,6 +349,7 @@
               "lun": 0,
               "name": "[concat(variables('adVMName'),'_DataDisk')]",
               "createOption": "attach",
+              "caching": "None",
               "managedDisk": {
                 "id": "[resourceId('Microsoft.Compute/disks/', concat(variables('adVMName'),'_DataDisk'))]"
               }
