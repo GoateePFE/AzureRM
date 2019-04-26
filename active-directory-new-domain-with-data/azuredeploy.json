@@ -169,7 +169,7 @@
     "adSubnetName": "[concat(parameters('namePrefix'),'-subnet')]",
     "adNicName": "[concat(parameters('namePrefix'),'Nic')]",
     "publicIPAddressName": "[concat(parameters('namePrefix'),'PIP')]",
-    "adVMName": "[concat(parameters('namePrefix'),'PIP')]",
+    "adVMName": "[concat(parameters('namePrefix'),'DC')]",
     "VnetID": "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]",
     "adSubnetRef": "[concat(variables('VnetID'),'/subnets/',variables('adSubnetName'))]",
     "adNicId": "[resourceId('Microsoft.Network/networkInterfaces',variables('adNicName'))]",

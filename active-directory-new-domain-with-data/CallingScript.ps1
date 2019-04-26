@@ -25,8 +25,10 @@ Login-AzAccount
 $URI       = 'https://raw.githubusercontent.com/cloudwidth/ADDS-with-Data/master/active-directory-new-domain-with-data/azuredeploy.json'
 $Location  = 'South Central US'
 $rgname    = 'RG-2019AzureGlobalBootcamp'
-$saname    = 'mysa2019agb'     # Lowercase required
+$namePrefix = '2019AGBDemo'
+$saname    = ('sa' + $namePrefix).ToLower()    # Lowercase required
 $addnsName = 'agbdemo'     # Lowercase required
+
 
 # Check that the public dns $addnsName is available
 if (Test-AzDnsAvailability -DomainNameLabel $addnsName -Location $Location)
@@ -42,6 +44,7 @@ $MyParams = @{
     location              = 'South Central US'
     domainName            = 'azureglobalbootcamp.com'
     addnsName             = $addnsName
+    namePrefix            = $namePrefix
    }
 
 # Splat the parameters on New-AzureRmResourceGroupDeployment  
