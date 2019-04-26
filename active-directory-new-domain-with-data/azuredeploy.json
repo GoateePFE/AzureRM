@@ -182,15 +182,16 @@
     {
       "type": "Microsoft.Compute/availabilitySets",
       "name": "[variables('adAvailabilitySetName')]",
-      "apiVersion": "2017-03-30",
+      "apiVersion": "2018-10-01",
       "location": "[parameters('location')]",
+      "sku": {
+        "name": "Aligned"
+      },
       "properties": {
         "PlatformUpdateDomainCount": 5,
         "PlatformFaultDomainCount": 2
       },
-      "sku": {
-        "name": "Aligned"
-      }
+      
     },
     {
       "name": "VNet",
