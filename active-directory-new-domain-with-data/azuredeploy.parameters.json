@@ -26,6 +26,9 @@
     "addnsName": {
       "value": "GEN-UNIQUE"
     },
+    "namePrefix": {
+      "value": "GEN-UNIQUE"
+    },
     "assetLocation": {
       "value": "https://raw.githubusercontent.com/cloudwidth/ADDS-with-Data/master/active-directory-new-domain-with-data/"
     }

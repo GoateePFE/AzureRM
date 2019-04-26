@@ -23,14 +23,15 @@ Login-AzAccount
 # Adjust the 'yournamehere' part of these three strings to
 # something unique for you. Leave the last two characters in each.
 $URI       = 'https://raw.githubusercontent.com/cloudwidth/ADDS-with-Data/master/active-directory-new-domain-with-data/azuredeploy.json'
-$Location  = 'south central us'
-$rgname    = 'RG-OnPremDatacenter'
-$saname    = 'saonpredcadds'     # Lowercase required
-$addnsName = 'onpremadds'     # Lowercase required
+$Location  = 'South Central US'
+$rgname    = 'RG-2019AzureGlobalBootcamp'
+$saname    = 'mysa2019agb'     # Lowercase required
+$addnsName = 'agbdemo'     # Lowercase required
 
 # Check that the public dns $addnsName is available
 if (Test-AzDnsAvailability -DomainNameLabel $addnsName -Location $Location)
 { 'Available' } else { 'Taken. addnsName must be globally unique.' }
+
 
 # Create the new resource group. Runs quickly.
 New-AzResourceGroup -Name $rgname -Location $Location
@@ -39,7 +40,7 @@ New-AzResourceGroup -Name $rgname -Location $Location
 $MyParams = @{
     newStorageAccountName = $saname
     location              = 'South Central US'
-    domainName            = 'alpineskihouse.com'
+    domainName            = 'azureglobalbootcamp.com'
     addnsName             = $addnsName
    }
 
@@ -48,7 +49,7 @@ $SplatParams = @{
     TemplateUri             = $URI 
     ResourceGroupName       = $rgname 
     TemplateParameterObject = $MyParams
-    Name                    = 'AlpineSkiHouseForest'
+    Name                    = '2019AzureGlobalBootcampForest'
    }
 
 # This takes ~30 minutes
