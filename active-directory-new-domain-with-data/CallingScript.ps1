@@ -5,17 +5,16 @@
 
 # Install the Azure Resource Manager modules from PowerShell Gallery
 # Takes a while to install 28 modules
-Install-Module AzureRM -Force -Verbose
-Install-AzureRM
+# Install-Module Az -Force -Verbose
 
-# Install the Azure Service Management module from PowerShell Gallery
-Install-Module Azure -Force -Verbose
+# # Install the Azure Service Management module from PowerShell Gallery
+# Install-Module Azure -Force -Verbose
 
-# Import AzureRM modules for the given version manifest in the AzureRM module
-Import-AzureRM -Verbose
+# # Import Az modules for the given version manifest in the Az module
+# Import-Module Az -Verbose
 
-# Import Azure Service Management module
-Import-Module Azure -Verbose
+# # Import Azure Service Management module
+# Import-Module Azure -Verbose
 
 # Authenticate to your Azure account
 Login-AzAccount
@@ -24,8 +23,8 @@ Login-AzAccount
 # something unique for you. Leave the last two characters in each.
 $URI       = 'https://raw.githubusercontent.com/cloudwidth/ADDS-with-Data/master/active-directory-new-domain-with-data/azuredeploy.json'
 $Location  = 'South Central US'
-$rgname    = 'RG-2019GAB'
-$namePrefix = 'GAB2019Demo'                     # cannot start with numbers
+$rgname    = 'RG-ActiveDirectory'
+$namePrefix = 'Cloudwidth'                     # cannot start with numbers
 $addnsName = ($namePrefix).ToLower()            # Lowercase required
 
 
@@ -45,7 +44,7 @@ $MyParams = @{
     namePrefix            = $namePrefix
    }
 
-# Splat the parameters on New-AzureRmResourceGroupDeployment  
+# Splat the parameters on New-AzResourceGroupDeployment  
 $SplatParams = @{
     TemplateUri             = $URI 
     ResourceGroupName       = $rgname 
